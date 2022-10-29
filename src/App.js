@@ -1,13 +1,13 @@
 import React from 'react';
-import SortViz from './SortViz/SortViz'
+import SortViz from './SortViz/SortViz';
+import PathFindingAlgorithm from './PathFindingAlgorithm/PathFindingAlgorithm';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <SortViz>
-         
-      </SortViz>
+      <SortViz></SortViz>
     </div>
   );
 }
