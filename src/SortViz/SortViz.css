@@ -10,3 +10,17 @@
     display: inline-block;
     margin: 0 1px;
 }
+
+.array-bar2 {
+    width: 5px;
+    background-color: orange;
+    display: inline-block;
+    margin: 0 0.5px;
+}
+
+.array-bar3 {
+    width: 5px;
+    background-color: rgb(113, 205, 113);
+    display: inline-block;
+    margin: 0 0.5px;
+}

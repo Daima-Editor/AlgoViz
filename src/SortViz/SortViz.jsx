@@ -1,5 +1,9 @@
 import React from 'react';
 import {getMergeSortAnimations} from '../SortingAlgorithms/SortingAlgorithms.js';
+import {getQuickSortAnimations} from '../SortingAlgorithms/SortingAlgorithms.js';
+import {getBubbleSortAnimations} from '../SortingAlgorithms/SortingAlgorithms.js';
+//import {getMergeSortAnimations} from '../SortingAlgorithms/SortingAlgorithms.js';
+
 import './SortViz.css';
 
 const ANIMATION_SPEED_MS = 3;
@@ -14,6 +18,8 @@ export default class SortingVisualizer extends React.Component {
     //We have an array stored in the state
     this.state = {
       array: [],
+      arr2: [],
+      arr3: [],
     };
   }
 
@@ -24,10 +30,16 @@ export default class SortingVisualizer extends React.Component {
  
   resetArray() {     // When using the generate new array method
     const array = [];
+    const arr2 = [];
+    const arr3 = [];
     for (let i = 0; i < 170; i++) {
-      array.push(randomIntFromInterval(5, 730));
+      array.push(randomIntFromInterval(5, 500));
+      arr2.push(randomIntFromInterval(5, 500));
+      arr3.push(randomIntFromInterval(5, 500));
     }
     this.setState({array});   // Then it resets the state
+    this.setState({arr2});
+    this.setState({arr3});
   }
 
   mergeSort() {
@@ -56,31 +68,53 @@ export default class SortingVisualizer extends React.Component {
   }
 
   quickSort() {
-    
-    
-  }
-
-  heapSort() {
-    
+    const animations2 = getQuickSortAnimations(this.state.arr2);
+        for (let i = 0; i < animations2.length; i++) {
+          const arrayBars = document.getElementsByClassName('array-bar2');
+          setTimeout(() => {
+            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations2[i];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            barOneStyle.height = `${barOneHeight}px`;
+            barTwoStyle.height = `${barTwoHeight}px`;
+          }, i * ANIMATION_SPEED_MS);
+        }
   }
 
   bubbleSort() {
-    
+    const animations3 = getBubbleSortAnimations(this.state.arr3);
+        for (let i = 0; i < animations3.length; i++) {
+          //console.log(animations[i]);
+          const arrayBars = document.getElementsByClassName('array-bar3');
+          setTimeout(() => {
+            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations3[i];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            barOneStyle.height = `${barOneHeight}px`;
+            barTwoStyle.height = `${barTwoHeight}px`;
+          }, i * ANIMATION_SPEED_MS);
+        }
   }
 
   render() {
-    const {array} = this.state;
+    const { array } = this.state;
+    const { arr2 } = this.state;
+    const { arr3 } = this.state; 
 
     return (
         <div className="array-container">
          {array.map((value, idx) => (
-          <div className="array-bar" key={idx} style={{height: `${value}px`}}>
-          </div>
+          <div className="array-bar" key={idx} style={{height: `${value}px`}}></div>
+         ))}
+         {arr2.map((value, idx) => (
+          <div className="array-bar2" key={idx} style={{height: `${value}px`}}></div>
+         ))}
+         {array.map((value, idx) => (
+          <div className="array-bar3" key={idx} style={{height: `${value}px`}}></div>
          ))}
          <button onClick={() => this.resetArray()}>Generate New Array</button>
          <button onClick={() => this.mergeSort()}>Merge Sort</button>
          <button onClick={() => this.quickSort()}>Quick Sort</button>
-         <button onClick={() => this.heapSort()}>Heap Sort</button>
          <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
         </div>
     );

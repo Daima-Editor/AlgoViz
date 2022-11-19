@@ -1,6 +1,5 @@
 import React from 'react';
 import SortViz from './SortViz/SortViz';
-import PathFindingAlgorithm from './PathFindingAlgorithm/PathFindingAlgorithm';
 import './App.css';
 
 
