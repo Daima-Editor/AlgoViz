@@ -85,5 +85,17 @@ For each edge (u, v) ∈ G.E ordered by increasing order by weight(u, v):
 return A
 ```
 
+# Knapsack Problem 
+It is an optimization technique that we can use to solve problems where the same work is being repeated over and over. A problem can be optimized using dynamic programming if it:
+
+* Optimal substructure: 
+Optimal substructure simply means that you can find the optimal solution to a problem by considering the optimal solution to its subproblems.
+* Overlapping subproblems:
+having overlapping subproblems means we are computing the same problem more than once. 
+
+
+# Heaps (heap sort)
+
 # Travelling Salesman Problem
 
+# A*
