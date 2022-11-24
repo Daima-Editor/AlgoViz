@@ -9,11 +9,17 @@ The minimum spanning tree from a graph is found using the following algorithms:
 Prim's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph which form a tree that includes every vertex
 has the minimum sum of weights among all the trees that can be formed from the graph
 
-<img src="prim-algo.gif"> 
+<img src="prim-algo.gif" width="200"> 
 
 
 
 
 ## Kruskal's Algorithm 
 
-<img src="Kruskal-algo.gif"> 
+Kruskal's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph which
+
+form a tree that includes every vertex
+has the minimum sum of weights among all the trees that can be formed from the graph
+
+
+<img src="Kruskal-algo.gif" width="200"> 
