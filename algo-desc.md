@@ -94,6 +94,32 @@ Optimal substructure simply means that you can find the optimal solution to a pr
 having overlapping subproblems means we are computing the same problem more than once. 
 
 
+```
+//this function behaves like the V(i,c) method defined previously
+//in this chapter
+int V(int i, int c){
+    //base cases
+    if(i == 0 || c == 0){
+        return 0;
+    }
+    //item does not fit case
+    if(wt(i) > c){
+        return V(i-1, c);
+    }
+    //compare best case if item i is taken or left behind.
+    //and return the larger number.
+    int B = V(i-1, c-wt(i)) + value(i);
+    int A = V(i-1, c);
+    if(A >= B){
+        return A;
+    }
+    else{
+        return B;
+    }
+}
+```
+
+
 # Heaps (heap sort)
 
 # Travelling Salesman Problem
