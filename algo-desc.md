@@ -121,6 +121,42 @@ int V(int i, int c){
 
 
 # Heaps (heap sort)
+Heap sort is a comparison-based sorting technique based on Binary Heap data structure. 
+The concept of heap sort is to eliminate the elements one by one from the heap part of the list, and then insert them into the sorted part of the list.
+
+Min Heap: If the element at the root is less than or equal to all the other nodes.
+Max Heap: If the element at the root is greater then or equal to all the other nodes.
+
+### Pseudo code for Max Heap Sort Algorithm
+
+```
+Heapify(A as array, n as int, i as int)
+{
+    max = i
+    leftchild = 2i + 1
+    rightchild = 2i + 2
+    if (leftchild <= n) and (A[i] < A[leftchild])
+        max = leftchild
+    else 
+        max = i
+    if (rightchild <= n) and (A[max]  > A[rightchild])
+        max = rightchild
+    if (max != i)
+        swap(A[i], A[max])
+        Heapify(A, n, max)
+}
+Heapsort(A as array) 
+{
+   n = length(A)
+   for i = n/2 downto 1   
+     Heapify(A, n ,i)
+   
+   for i = n downto 2
+     exchange A[1] with A[i]
+     A.heapsize = A.heapsize - 1
+     Heapify(A, i, 0)
+}
+```
 
 # Travelling Salesman Problem
 
